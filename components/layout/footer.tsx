@@ -5,11 +5,11 @@ import { FacebookIcon, InstagramIcon, TiktokIcon, YoutubeIcon } from "@/componen
 import { siteConfig } from "@/lib/site-config";
 
 const navLinks = [
-  { href: "/led-chieu-sang", label: "LED chieu sang" },
-  { href: "/dien-gia-dung", label: "Dien gia dung" },
-  { href: "/thiet-bi-dien", label: "Thiet bi dien" },
-  { href: "/thiet-bi-nuoc", label: "Thiet bi nuoc" },
-  { href: "/lien-he", label: "Lien he" }
+  { href: "/led-chieu-sang", label: "LED chiếu sáng" },
+  { href: "/dien-gia-dung", label: "Điện gia dụng" },
+  { href: "/thiet-bi-dien", label: "Thiết bị điện" },
+  { href: "/thiet-bi-nuoc", label: "Thiết bị nước" },
+  { href: "/lien-he", label: "Liên hệ" }
 ];
 
 const socialLinks = [
@@ -25,7 +25,7 @@ export function Footer() {
       <div className="bg-orange-500">
         <Container className="flex flex-col items-center justify-between gap-4 py-5 sm:flex-row">
           <p className="text-center text-sm font-semibold text-white sm:text-left sm:text-base">
-            Can tu van? Goi ngay <a className="underline underline-offset-2" href={siteConfig.phoneHref}>{siteConfig.phone}</a>
+            Cần tư vấn? Gọi ngay <a className="underline underline-offset-2" href={siteConfig.phoneHref}>{siteConfig.phone}</a>
           </p>
           <div className="flex gap-3">
             <a
@@ -33,7 +33,7 @@ export function Footer() {
               href={siteConfig.phoneHref}
             >
               <Image alt="Goi" className="object-contain" height={20} src="/logo/phone.png" width={20} />
-              Goi tu van
+              Gọi tư vấn
             </a>
             <a
               className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-orange-600 transition hover:shadow-lg"
@@ -77,7 +77,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">San pham</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Sản phẩm</h4>
             <nav className="mt-4 flex flex-col gap-2.5">
               {navLinks.map((link) => (
                 <Link
@@ -92,18 +92,18 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Lien he</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Liên hệ</h4>
             <div className="mt-4 space-y-3 text-sm text-slate-400">
               <div>
-                <p className="text-xs text-slate-500">Tru so</p>
+                <p className="text-xs text-slate-500">Trụ sở</p>
                 <p>{siteConfig.address}</p>
               </div>
               <div>
-                <p className="text-xs text-slate-500">Nha may</p>
+                <p className="text-xs text-slate-500">Nhà máy</p>
                 <p>{siteConfig.factoryAddress}</p>
               </div>
               <div>
-                <p className="text-xs text-slate-500">CN Mien Nam</p>
+                <p className="text-xs text-slate-500">CN Miền Nam</p>
                 <p>{siteConfig.branchAddress}</p>
               </div>
               <div>
@@ -119,16 +119,16 @@ export function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Hotline</h4>
             <div className="mt-4 space-y-3">
               <a className="block rounded-xl bg-slate-800 p-4 transition hover:bg-slate-700" href={siteConfig.phoneHref}>
-                <p className="text-xs text-slate-500">Tu van & Bao gia</p>
+                <p className="text-xs text-slate-500">Tư vấn & Báo giá</p>
                 <p className="mt-1 text-xl font-black text-orange-400">{siteConfig.phone}</p>
               </a>
               <a className="block rounded-xl bg-slate-800 p-4 transition hover:bg-slate-700" href={siteConfig.phoneSouthHref}>
-                <p className="text-xs text-slate-500">Chi nhanh Mien Nam</p>
+                <p className="text-xs text-slate-500">Chi nhánh Miền Nam</p>
                 <p className="mt-1 text-xl font-black text-orange-400">{siteConfig.phoneSouth}</p>
               </a>
             </div>
 
-            <h4 className="mt-6 text-xs font-bold uppercase tracking-widest text-orange-400">Chinh sach</h4>
+            <h4 className="mt-6 text-xs font-bold uppercase tracking-widest text-orange-400">Chính sách</h4>
             <div className="mt-3 flex flex-wrap gap-2">
               {siteConfig.policies.slice(0, 4).map((p) => (
                 <Link

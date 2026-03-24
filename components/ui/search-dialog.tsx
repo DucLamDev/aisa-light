@@ -24,7 +24,7 @@ export function SearchDialog({ products }: { products: ProductRecord[] }) {
   return (
     <>
       <button
-        aria-label="Tim kiem san pham"
+        aria-label={"T\u00ecm ki\u1ebfm s\u1ea3n ph\u1ea9m"}
         className="rounded-full border border-white/20 bg-white/90 p-3 text-slate-900 shadow-soft transition hover:scale-105 hover:bg-white"
         onClick={() => setOpen(true)}
         type="button"
@@ -44,7 +44,7 @@ export function SearchDialog({ products }: { products: ProductRecord[] }) {
                 autoFocus
                 className="w-full border-0 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400"
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Tim theo ten san pham..."
+                placeholder={"T\u00ecm theo t\u00ean s\u1ea3n ph\u1ea9m..."}
                 value={query}
               />
             </div>
@@ -59,7 +59,7 @@ export function SearchDialog({ products }: { products: ProductRecord[] }) {
                   <div>
                     <p className="font-semibold text-slate-900">{product.name}</p>
                     <p className="text-sm text-slate-500">
-                      {product.subcategoryName} • {product.wattage}
+                      {product.subcategoryName} {"\u2022"} {product.wattage}
                     </p>
                   </div>
                   <span className="text-sm font-semibold text-orange-500">Xem ngay</span>

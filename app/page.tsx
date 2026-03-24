@@ -20,57 +20,57 @@ import { getCatalog } from "@/lib/catalog";
 import { siteConfig } from "@/lib/site-config";
 
 const quickStats = [
-  { end: 10, suffix: "+", label: "Nam kinh nghiem" },
-  { end: 1000, suffix: "+", label: "San pham da dang" },
-  { end: 5000, suffix: "+", label: "Khach hang tin dung" },
-  { end: 63, suffix: "", label: "Tinh thanh giao hang" }
+  { end: 10, suffix: "+", label: "Năm kinh nghiệm" },
+  { end: 1000, suffix: "+", label: "Sản phẩm đa dạng" },
+  { end: 5000, suffix: "+", label: "Khách hàng tin dùng" },
+  { end: 63, suffix: "", label: "Tỉnh thành giao hàng" }
 ];
 
 const trustStats = [
-  { end: 10, suffix: "+", label: "Nam hoat dong", color: "from-orange-500 to-orange-600" },
-  { end: 5000, suffix: "+", label: "Khach hang", color: "from-slate-900 to-slate-800" },
-  { end: 100, suffix: "%", label: "Chinh hang", color: "from-slate-900 to-slate-800" },
-  { end: 63, suffix: "", label: "Tinh thanh", color: "from-orange-500 to-orange-600" }
+  { end: 10, suffix: "+", label: "Năm hoạt động", color: "from-orange-500 to-orange-600" },
+  { end: 5000, suffix: "+", label: "Khách hàng", color: "from-slate-900 to-slate-800" },
+  { end: 100, suffix: "%", label: "Chính hãng", color: "from-slate-900 to-slate-800" },
+  { end: 63, suffix: "", label: "Tỉnh thành", color: "from-orange-500 to-orange-600" }
 ];
 
 const benefits = [
   {
     icon: FactoryIcon,
-    title: "Nha may san xuat",
-    desc: "Chu dong san xuat va kiem soat chat luong ngay tu dau vao cho den thanh pham."
+    title: "Nhà máy sản xuất",
+    desc: "Chủ động sản xuất và kiểm soát chất lượng ngay từ đầu vào cho đến thành phẩm."
   },
   {
     icon: ShieldCheckIcon,
-    title: "San pham chinh hang",
-    desc: "Nguon goc ro rang, tem nhan day du va chinh sach bao hanh minh bach."
+    title: "Sản phẩm chính hãng",
+    desc: "Nguồn gốc rõ ràng, tem nhãn đầy đủ và chính sách bảo hành minh bạch."
   },
   {
     icon: DeliveryIcon,
-    title: "Giao hang toan quoc",
-    desc: "Ho tro van chuyen nhanh va dong goi can than cho don le lan du an."
+    title: "Giao hàng toàn quốc",
+    desc: "Hỗ trợ vận chuyển nhanh và đóng gói cẩn thận cho đơn lẻ lẫn dự án."
   },
   {
     icon: HeadsetIcon,
-    title: "Tu van mien phi",
-    desc: "Doi ngu ky thuat luon san sang tu van giai phap phu hop tung nhu cau."
+    title: "Tư vấn miễn phí",
+    desc: "Đội ngũ kỹ thuật luôn sẵn sàng tư vấn giải pháp phù hợp từng nhu cầu."
   }
 ];
 
 const commitments = [
   {
     icon: BadgeIcon,
-    title: "Bao hanh chinh hang",
-    desc: "Tat ca san pham duoc bao hanh theo chinh sach chinh hang, ho tro doi tra nhanh."
+    title: "Bảo hành chính hãng",
+    desc: "Tất cả sản phẩm được bảo hành theo chính sách chính hãng, hỗ trợ đổi trả nhanh."
   },
   {
     icon: WalletIcon,
-    title: "Gia canh tranh",
-    desc: "Muc gia on dinh, toi uu cho mua le, cong trinh va don hang so luong lon."
+    title: "Giá cạnh tranh",
+    desc: "Mức giá ổn định, tối ưu cho mua lẻ, công trình và đơn hàng số lượng lớn."
   },
   {
     icon: WrenchIcon,
-    title: "Ho tro ky thuat",
-    desc: "Dong hanh tu tu van thong so, lua chon model den ho tro lap dat va su dung."
+    title: "Hỗ trợ kỹ thuật",
+    desc: "Đồng hành từ tư vấn thông số, lựa chọn model đến hỗ trợ lắp đặt và sử dụng."
   }
 ];
 
@@ -104,9 +104,9 @@ export default async function HomePage() {
       <Container className="py-10 sm:py-14">
         <AnimateOnScroll animation="fade-up">
           <SectionHeading
-            description="Chon nhom san pham phu hop nhu cau cua ban de xem chi tiet va nhan bao gia nhanh nhat."
-            eyebrow="Danh muc san pham"
-            title="Kham pha cac nhom san pham"
+            description="Chọn nhóm sản phẩm phù hợp nhu cầu của bạn để xem chi tiết và nhận báo giá nhanh nhất."
+            eyebrow="Danh mục sản phẩm"
+            title="Khám phá các nhóm sản phẩm"
           />
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-up" delay={200}>
@@ -120,9 +120,9 @@ export default async function HomePage() {
         <Container className="py-10 sm:py-14">
           <AnimateOnScroll animation="fade-up">
             <SectionHeading
-              description="Cac mau san pham ban chay duoc khach hang lua chon nhieu, phu hop cho nha o va cong trinh."
-              eyebrow="San pham noi bat"
-              title="Nhung model duoc quan tam nhieu"
+              description="Các mẫu sản phẩm bán chạy được khách hàng lựa chọn nhiều, phù hợp cho nhà ở và công trình."
+              eyebrow="Sản phẩm nổi bật"
+              title="Những model được quan tâm nhiều"
             />
           </AnimateOnScroll>
           <AnimateOnScroll animation="slide-up" delay={150}>
@@ -136,9 +136,9 @@ export default async function HomePage() {
       <Container className="py-10 sm:py-14">
         <AnimateOnScroll animation="fade-up">
           <SectionHeading
-            description="Hon 10 nam kinh nghiem cung cap thiet bi dien va chieu sang cho hang nghin cong trinh tren toan quoc."
-            eyebrow="Ve chung toi"
-            title="Tai sao nen chon Asia Lighting?"
+            description="Hơn 10 năm kinh nghiệm cung cấp thiết bị điện và chiếu sáng cho hàng nghìn công trình trên toàn quốc."
+            eyebrow="Về chúng tôi"
+            title="Tại sao nên chọn Asia Lighting?"
           />
         </AnimateOnScroll>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -161,17 +161,17 @@ export default async function HomePage() {
           <AnimateOnScroll animation="fade-up">
             <div className="mx-auto max-w-3xl text-center">
               <span className="inline-flex rounded-full bg-orange-500/20 px-4 py-1 text-sm font-semibold text-orange-400">
-                Quy trinh
+                Quy trình
               </span>
-              <h2 className="mt-4 text-2xl font-bold sm:text-3xl">Mua hang de dang chi voi 4 buoc</h2>
+              <h2 className="mt-4 text-2xl font-bold sm:text-3xl">Mua hàng dễ dàng chỉ với 4 bước</h2>
             </div>
           </AnimateOnScroll>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { step: "01", title: "Chon san pham", desc: "Duyet danh muc va chon dung model ban can." },
-              { step: "02", title: "Lien he bao gia", desc: "Goi dien, nhan Zalo hoac Messenger de nhan gia tot." },
-              { step: "03", title: "Xac nhan don hang", desc: "Thong nhat so luong, model va dia chi giao." },
-              { step: "04", title: "Giao hang tan noi", desc: "Dong goi can than va giao nhanh tren toan quoc." }
+              { step: "01", title: "Chọn sản phẩm", desc: "Duyệt danh mục và chọn đúng model bạn cần." },
+              { step: "02", title: "Liên hệ báo giá", desc: "Gọi điện, nhắn Zalo hoặc Messenger để nhận giá tốt." },
+              { step: "03", title: "Xác nhận đơn hàng", desc: "Thống nhất số lượng, model và địa chỉ giao." },
+              { step: "04", title: "Giao hàng tận nơi", desc: "Đóng gói cẩn thận và giao nhanh trên toàn quốc." }
             ].map((item, i) => (
               <AnimateOnScroll animation="fade-up" delay={i * 150} key={item.step}>
                 <div className="relative rounded-[1.75rem] border border-white/10 bg-white/5 p-5 backdrop-blur sm:p-6">
@@ -188,9 +188,9 @@ export default async function HomePage() {
       <Container className="py-10 sm:py-14">
         <AnimateOnScroll animation="fade-up">
           <SectionHeading
-            description="Asia Lighting cam ket mang den san pham chat luong cao va dich vu hau mai ro rang."
-            eyebrow="Cam ket"
-            title="Gia tri ma chung toi mang lai"
+            description="Asia Lighting cam kết mang đến sản phẩm chất lượng cao và dịch vụ hậu mãi rõ ràng."
+            eyebrow="Cam kết"
+            title="Giá trị mà chúng tôi mang lại"
           />
         </AnimateOnScroll>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -215,22 +215,22 @@ export default async function HomePage() {
               <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_1fr]">
                 <div>
                   <span className="inline-flex rounded-full bg-orange-100 px-4 py-1 text-sm font-semibold text-orange-600">
-                    Uy tin hang dau
+                    Uy tín hàng đầu
                   </span>
                   <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-4xl">
-                    Duoc hang nghin khach hang va doi tac tin tuong
+                    Được hàng nghìn khách hàng và đối tác tin tưởng
                   </h2>
                   <p className="mt-4 text-base leading-7 text-slate-600">
-                    Tu ho gia dinh den du an lon, Asia Lighting luon dong hanh cung cap giai phap chieu sang va
-                    thiet bi dien toi uu.
+                    Từ hộ gia đình đến dự án lớn, Asia Lighting luôn đồng hành cung cấp giải pháp chiếu sáng và
+                    thiết bị điện tối ưu.
                   </p>
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                     <a
                       className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-orange-600"
                       href={siteConfig.phoneHref}
                     >
-                      <Image alt="Goi" className="object-contain" height={18} src="/logo/phone.png" width={18} />
-                      Goi tu van
+                      <Image alt="Gọi" className="object-contain" height={18} src="/logo/phone.png" width={18} />
+                      Gọi tư vấn
                     </a>
                     <a
                       className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-700 shadow-soft transition hover:-translate-y-0.5 hover:border-orange-300"
@@ -264,9 +264,9 @@ export default async function HomePage() {
         <div className="bg-gradient-to-r from-orange-500 to-orange-600">
           <Container className="py-10 sm:py-14">
             <div className="text-center text-white">
-              <h2 className="text-xl font-bold sm:text-3xl">Ban can bao gia hoac tu van giai phap chieu sang?</h2>
+              <h2 className="text-xl font-bold sm:text-3xl">Bạn cần báo giá hoặc tư vấn giải pháp chiếu sáng?</h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm text-white/90 sm:text-base">
-                Lien he ngay voi doi ngu Asia Lighting de duoc ho tro nhanh va de xuat dung nhu cau cua ban.
+                Liên hệ ngay với đội ngũ Asia Lighting để được hỗ trợ nhanh và đề xuất đúng nhu cầu của bạn.
               </p>
               <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <a
@@ -274,7 +274,7 @@ export default async function HomePage() {
                   href={siteConfig.phoneHref}
                 >
                   <PhoneIcon className="h-4 w-4" />
-                  Goi ngay: {siteConfig.phone}
+                  Gọi ngay: {siteConfig.phone}
                 </a>
                 <a
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-white px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-orange-600 sm:w-auto sm:px-8 sm:py-3.5"

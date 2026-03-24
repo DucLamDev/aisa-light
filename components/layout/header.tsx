@@ -9,12 +9,12 @@ import { SearchDialog } from "@/components/ui/search-dialog";
 import { ProductRecord } from "@/types/catalog";
 
 const links = [
-  { href: "/", label: "Trang chu", icon: MenuGridIcon },
-  { href: "/led-chieu-sang", label: "LED chieu sang", icon: BoltIcon },
-  { href: "/dien-gia-dung", label: "Dien gia dung", icon: MenuGridIcon },
-  { href: "/thiet-bi-dien", label: "Thiet bi dien", icon: BoltIcon },
-  { href: "/thiet-bi-nuoc", label: "Thiet bi nuoc", icon: DropletsIcon },
-  { href: "/lien-he", label: "Lien he", icon: PhoneIcon }
+  { href: "/", label: "Trang chủ", icon: MenuGridIcon },
+  { href: "/led-chieu-sang", label: "LED chiếu sáng", icon: BoltIcon },
+  { href: "/dien-gia-dung", label: "Điện gia dụng", icon: MenuGridIcon },
+  { href: "/thiet-bi-dien", label: "Thiết bị điện", icon: BoltIcon },
+  { href: "/thiet-bi-nuoc", label: "Thiết bị nước", icon: DropletsIcon },
+  { href: "/lien-he", label: "Liên hệ", icon: PhoneIcon }
 ];
 
 export function Header({ products }: { products: ProductRecord[] }) {
@@ -37,7 +37,7 @@ export function Header({ products }: { products: ProductRecord[] }) {
               <p className="truncate text-xs font-semibold uppercase tracking-[0.28em] text-orange-500 sm:text-sm">
                 Asia Lighting
               </p>
-              <p className="truncate text-xs text-slate-500 sm:text-sm">Thiet bi dien va den LED</p>
+              <p className="truncate text-xs text-slate-500 sm:text-sm">Thiết bị điện và đèn LED</p>
             </div>
           </Link>
 
