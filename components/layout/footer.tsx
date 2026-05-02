@@ -22,7 +22,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="mt-16 sm:mt-20">
-      <div className="bg-orange-500">
+      {/* <div className="bg-orange-500">
         <Container className="flex flex-col items-center justify-between gap-4 py-5 sm:flex-row">
           <p className="text-center text-sm font-semibold text-white sm:text-left sm:text-base">
             Cần tư vấn? Gọi ngay <a className="underline underline-offset-2" href={siteConfig.phoneHref}>{siteConfig.phone}</a>
@@ -46,7 +46,7 @@ export function Footer() {
             </a>
           </div>
         </Container>
-      </div>
+      </div> */}
 
       <div className="bg-slate-900 text-white">
         <Container className="grid gap-10 py-12 sm:py-14 md:grid-cols-2 lg:grid-cols-4">

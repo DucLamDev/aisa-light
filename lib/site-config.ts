@@ -83,3 +83,29 @@ export const categoryConfigs: CategoryConfig[] = [
       "Thiết bị nước và phụ kiện vệ sinh với nhiều mẫu cao cấp, tối ưu thẩm mỹ và độ bền."
   }
 ];
+
+export const keySubcategories: Record<string, string[]> = {
+  "led-chieu-sang": [
+    "den-led-op-noi-pha-le",
+    "den-led-op-noi-sieu-sang",
+    "den-led-op-noi-than-nhua-dob",
+    "den-pha-led",
+    "den-su-co-den-chi-dan-exit",
+    "den-tran-noi-led-den-ong-bo-led",
+    "den-led-tron",
+    "den-tuong-1-dau",
+    "den-tuong-2-dau",
+    "den-tuong-trang-tri"
+  ],
+  "thiet-bi-dien": [
+    "quat-hut-gio-am-tran",
+    "quat-hut-gio-gan-tuong",
+    "quat-hut-gio-noi-ong"
+  ],
+  "dien-gia-dung": [
+    "quat-tran-cao-cap",
+    "den-suoi-cao-cap",
+    "vot-muoi-cao-cap-den-diet-con-trung"
+  ]
+};
+

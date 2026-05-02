@@ -6,7 +6,7 @@ import {
 } from "@/lib/catalog-labels";
 import { readCmsProducts } from "@/lib/cms";
 import { getOfficialProduct, getOfficialSubcategoryName, specsToArray } from "@/lib/products-data";
-import { categoryConfigs, siteConfig } from "@/lib/site-config";
+import { categoryConfigs, keySubcategories, siteConfig } from "@/lib/site-config";
 import { getModelCode, getWattage, slugify } from "@/lib/utils";
 import { CategoryRecord, ProductRecord, SubcategoryRecord } from "@/types/catalog";
 
@@ -240,9 +240,21 @@ export async function getCatalog() {
         return items;
       }, []);
 
-      const allSubcategories = [...subcategories, ...extraSubcategories].sort((a, b) =>
-        a.name.localeCompare(b.name, "vi")
-      );
+      const keySlugs = keySubcategories[config.slug] || [];
+      const allSubcategories = [...subcategories, ...extraSubcategories].sort((a, b) => {
+        const aIndex = keySlugs.indexOf(a.slug);
+        const bIndex = keySlugs.indexOf(b.slug);
+        
+        // If both are key subcategories, maintain their relative order as in keySlugs
+        if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+        // If a is key subcategory, it comes first
+        if (aIndex !== -1) return -1;
+        // If b is key subcategory, it comes first
+        if (bIndex !== -1) return 1;
+        
+        // Otherwise sort alphabetically
+        return a.name.localeCompare(b.name, "vi");
+      });
 
       const categoryRecord: CategoryRecord = {
         ...config,

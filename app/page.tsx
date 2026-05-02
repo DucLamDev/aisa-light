@@ -14,7 +14,7 @@ import {
   ShieldCheckIcon
 } from "@/components/ui/icons";
 import { getCatalog } from "@/lib/catalog";
-import { siteConfig } from "@/lib/site-config";
+import { keySubcategories, siteConfig } from "@/lib/site-config";
 
 const features = [
   { icon: FactoryIcon, text: "Nhà máy sản xuất" },
@@ -25,7 +25,6 @@ const features = [
 
 export default async function HomePage() {
   const catalog = await getCatalog();
-  const featuredProducts = catalog.flatMap((c) => c.products).slice(0, 10);
 
   return (
     <>
@@ -80,7 +79,13 @@ export default async function HomePage() {
 
       {/* Featured products per category */}
       {catalog.map((category) => {
-        const topProducts = category.products.slice(0, 10);
+        // Pick 1 product from each key subcategory to show a diverse set of key products
+        const keySlugs = keySubcategories[category.slug] || [];
+        const topProducts = category.subcategories
+          .filter(sub => keySlugs.includes(sub.slug))
+          .map((sub) => sub.products[0])
+          .filter(Boolean)
+          .slice(0, 10);
         if (topProducts.length === 0) return null;
         return (
           <div className="border-t border-slate-100" key={category.slug}>
