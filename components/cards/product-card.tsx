@@ -2,35 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProductRecord } from "@/types/catalog";
 
-export function ProductCard({ product }: { product: ProductRecord }) {
+interface ProductCardProps {
+  product: ProductRecord;
+  priority?: boolean;
+}
+
+export function ProductCard({ product, priority = false }: ProductCardProps) {
   return (
     <Link
-      className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-float"
+      className="group flex h-full flex-col overflow-hidden rounded-lg border-2 border-transparent bg-white shadow-sm transition-all duration-300 hover:border-orange-400 hover:shadow-[0_0_16px_rgba(249,115,22,0.25)]"
       href={`/${product.categorySlug}/${product.subcategorySlug}/${product.slug}`}
     >
-      <div className="relative aspect-[5/4] overflow-hidden bg-gradient-to-br from-amber-50 via-white to-slate-50">
-        <Image
-          alt={product.name}
-          className="object-contain p-7 transition duration-500 group-hover:scale-110"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          src={product.image}
-        />
-      </div>
-      <div className="px-5 -mt-5 relative z-10">
-        <div className="rounded-full bg-orange-500 px-4 py-2.5 text-center text-sm font-semibold text-white shadow-soft transition group-hover:bg-orange-600">
-          Liên hệ để nhận báo giá
+      <div className="flex items-center justify-center px-2 pt-3 pb-1 sm:px-3 sm:pt-4">
+        <div className="relative mx-auto aspect-square w-[80%] overflow-hidden rounded-full bg-gradient-to-br from-orange-50 via-amber-50/60 to-white transition-shadow duration-300 group-hover:shadow-[0_0_24px_rgba(251,191,36,0.35)]">
+          <Image
+            alt={product.name}
+            className="object-contain p-2.5 sm:p-3 transition duration-500 group-hover:scale-110"
+            fill
+            loading={priority ? "eager" : "lazy"}
+            priority={priority}
+            sizes="(max-width: 640px) 28vw, (max-width: 1024px) 20vw, 16vw"
+            src={product.image}
+          />
         </div>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
-          {product.subcategoryName}
-        </p>
-        <h3 className="mt-3 min-h-[4.5rem] text-xl font-bold leading-8 text-slate-900">
+      <div className="flex flex-1 flex-col items-center px-1.5 pb-2.5 pt-1 text-center sm:px-2 sm:pb-3">
+        <h3 className="line-clamp-2 text-[10px] font-bold uppercase leading-3 text-orange-500 sm:text-xs sm:leading-4">
           {product.name}
         </h3>
-        <p className="mt-4 text-sm text-slate-500">Mã: {product.modelCode}</p>
-        <p className="mt-1 text-sm text-slate-500">Công suất: {product.wattage}</p>
       </div>
     </Link>
   );

@@ -29,6 +29,7 @@ export type SubcategoryRecord = {
   name: string;
   coverImage: string;
   products: ProductRecord[];
+  children?: SubcategoryRecord[];
 };
 
 export type CategoryRecord = CategoryConfig & {

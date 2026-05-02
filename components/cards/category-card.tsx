@@ -17,22 +17,23 @@ export function CategoryCard({
 
   return (
     <Link
-      className="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-orange-300 hover:shadow-float"
+      className="group flex flex-col overflow-hidden rounded-xl border-2 border-transparent bg-white shadow-sm transition-all duration-300 hover:border-orange-400 hover:shadow-[0_0_20px_rgba(249,115,22,0.25)]"
       href={href}
     >
-      <div className="mx-auto flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-slate-50 ring-8 ring-orange-50">
-        <Image
-          alt={title}
-          className="h-full w-full object-contain p-4 transition duration-300 group-hover:scale-110"
-          height={112}
-          sizes="112px"
-          src={item.coverImage}
-          width={112}
-        />
+      <div className="flex items-center justify-center px-3 pt-4 pb-1 sm:px-4 sm:pt-5">
+        <div className="relative mx-auto aspect-square w-[70%] overflow-hidden rounded-full bg-gradient-to-br from-orange-50 via-amber-50/60 to-white transition-shadow duration-300 group-hover:shadow-[0_0_30px_rgba(251,191,36,0.35)]">
+          <Image
+            alt={title}
+            className="object-contain p-3 transition duration-500 group-hover:scale-110"
+            fill
+            sizes="(max-width: 768px) 30vw, 120px"
+            src={item.coverImage}
+          />
+        </div>
       </div>
-      <div className="mt-5 text-center">
-        <h3 className="text-base font-bold text-slate-900">{title}</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-500">{productCount} sản phẩm / model</p>
+      <div className="px-2 pb-3 pt-2 text-center sm:px-3 sm:pb-4">
+        <h3 className="text-xs font-bold uppercase leading-4 text-orange-500 sm:text-sm">{title}</h3>
+        <p className="mt-1 text-[10px] text-slate-500 sm:text-xs">{productCount} sản phẩm</p>
       </div>
     </Link>
   );

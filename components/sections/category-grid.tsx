@@ -11,7 +11,7 @@ export function CategoryGrid({
   basePath?: string;
 }) {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 xl:grid-cols-5">
       {items.map((item) => {
         const href =
           type === "category"

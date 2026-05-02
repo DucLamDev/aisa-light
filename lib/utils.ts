@@ -18,13 +18,23 @@ export function titleFromSlug(value: string) {
 }
 
 export function getModelCode(text: string) {
-  const match = text.match(/[A-Z]{1,5}[A-Z0-9-]{1,}/);
-  return match?.[0] ?? "Liên hệ để nhận mã";
+  // Try common Asia Lighting model patterns: OTG24-01, COS-10W, AT3-15, SMD1-10W, W-DOB, etc.
+  const patterns = [
+    /([A-Z]{2,}[0-9]*[-][A-Z0-9]+(?:[-][A-Z0-9]+)*)/,  // OTG24-01, COS-10W
+    /([A-Z]{2,}[0-9]+)/,                                  // AT315, SMD110
+    /([A-Z]{1,5}[A-Z0-9-]{2,})/,                          // General uppercase pattern
+  ];
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match?.[0] && match[0].length >= 3) return match[0];
+  }
+  return "Liên hệ để nhận mã";
 }
 
 export function getWattage(text: string) {
-  const match = text.match(/\d+(?:\.\d+)?\s?W/i);
-  return match?.[0].toUpperCase() ?? "Nhiều lựa chọn công suất";
+  const match = text.match(/(\d+(?:\.\d+)?)\s?[wW]/);
+  if (match) return `${match[1]}W`;
+  return "Nhiều lựa chọn công suất";
 }
 
 export function absoluteUrl(path = "") {
