@@ -273,7 +273,7 @@ export async function getSubcategory(categorySlug: string, subcategorySlug: stri
 }
 
 /**
- * Find a child (sub-subcategory) within a subcategory by slug.
+ * Find a child (sub-subcategory) within a subcategory by slug recursively.
  */
 export async function getChildSubcategory(
   categorySlug: string,
@@ -281,7 +281,18 @@ export async function getChildSubcategory(
   childSlug: string
 ) {
   const { category, subcategory } = await getSubcategory(categorySlug, subcategorySlug);
-  const child = subcategory?.children?.find((c) => c.slug === childSlug) ?? null;
+  
+  function findChild(children: SubcategoryRecord[] | undefined, slug: string): SubcategoryRecord | null {
+    if (!children) return null;
+    for (const child of children) {
+      if (child.slug === slug) return child;
+      const found = findChild(child.children, slug);
+      if (found) return found;
+    }
+    return null;
+  }
+
+  const child = findChild(subcategory?.children, childSlug);
   return { category, subcategory, child };
 }
 
