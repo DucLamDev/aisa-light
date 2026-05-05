@@ -2,6 +2,54 @@ import { BlogPost } from "@/types/catalog";
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "bi-quyet-mua-den-led-gia-re-chat-luong",
+    title: "Bí quyết chọn mua đèn LED giá rẻ, chất lượng cho gia đình",
+    excerpt:
+      "Hướng dẫn chi tiết cách chọn mua đèn LED giá rẻ, siêu sáng, tiết kiệm điện cho gia đình mà không lo mua phải hàng kém chất lượng.",
+    description:
+      "Bạn đang tìm kiếm đèn LED giá rẻ? Bài viết cung cấp kinh nghiệm thực tế giúp bạn chọn mua đèn LED giá rẻ nhưng vẫn đảm bảo độ bền, tuổi thọ cao và an toàn cho mắt.",
+    publishedAt: "2026-05-02",
+    readingTime: "5 phút đọc",
+    image: "/Trang-LED-chieu-sang/en-Tron-Led.webp",
+    content: [
+      "Trên thị trường hiện nay có rất nhiều mẫu mã đèn LED giá rẻ, đa dạng từ đèn âm trần, đèn ốp nổi đến đèn tuýp. Tuy nhiên, việc chọn mua được sản phẩm vừa rẻ vừa tốt đòi hỏi người tiêu dùng cần có kinh nghiệm.",
+      "Khi mua đèn LED giá rẻ, điều quan trọng nhất là bạn cần kiểm tra chip LED và bộ nguồn (driver). Một chiếc đèn chất lượng dù ở phân khúc giá rẻ cũng phải đảm bảo tản nhiệt tốt, ánh sáng không bị nhấp nháy để bảo vệ thị lực cho cả gia đình.",
+      "Thương hiệu uy tín như Asia Lighting cung cấp các giải pháp đèn LED giá rẻ nhưng được kiểm định chất lượng nghiêm ngặt, với chính sách bảo hành dài hạn. Đầu tư vào các sản phẩm này không chỉ giúp tiết kiệm chi phí ban đầu mà còn giảm thiểu tối đa tiền điện mỗi tháng."
+    ]
+  },
+  {
+    slug: "top-5-mau-den-led-gia-re-duoc-ua-chuong",
+    title: "Top 5 mẫu đèn LED giá rẻ được ưa chuộng nhất 2026",
+    excerpt:
+      "Điểm danh 5 mẫu đèn LED giá rẻ, độ bền cao, ánh sáng chuẩn được các chủ thầu và hộ gia đình tin dùng nhất hiện nay.",
+    description:
+      "Khám phá danh sách các mẫu đèn LED giá rẻ bán chạy nhất năm, đáp ứng mọi nhu cầu chiếu sáng từ phòng khách, phòng ngủ đến không gian ngoài trời.",
+    publishedAt: "2026-05-01",
+    readingTime: "4 phút đọc",
+    image: "/Trang-LED-chieu-sang/en-led-op-noi-sieu-sang.png",
+    content: [
+      "Nếu bạn đang tìm kiếm các giải pháp chiếu sáng tối ưu chi phí, top 5 mẫu đèn LED giá rẻ dưới đây sẽ là sự lựa chọn không thể bỏ qua.",
+      "Đứng đầu danh sách là dòng đèn LED âm trần siêu mỏng, nổi bật với thiết kế tinh tế và khả năng phân bổ ánh sáng đều. Tiếp theo là đèn LED búp tròn và đèn tuýp LED, hai dòng sản phẩm 'quốc dân' thường xuyên cháy hàng nhờ mức giá cực kỳ dễ tiếp cận và tính ứng dụng cao.",
+      "Những mẫu đèn LED giá rẻ này không chỉ có giá thành hấp dẫn mà còn được trang bị công nghệ chống chói, quang thông cao, đem lại nguồn sáng tự nhiên, trung thực cho không gian sống của bạn."
+    ]
+  },
+  {
+    slug: "canh-bao-rui-ro-khi-su-dung-den-led-gia-re",
+    title: "Cảnh báo những rủi ro khi sử dụng đèn LED giá rẻ trôi nổi",
+    excerpt:
+      "Sử dụng đèn LED giá rẻ không rõ nguồn gốc có thể gây hại mắt và chập cháy. Tìm hiểu ngay để bảo vệ sức khỏe gia đình bạn.",
+    description:
+      "Mua đèn LED giá rẻ trôi nổi mang lại nhiều rủi ro tiềm ẩn. Cùng phân tích những tác hại và cách phòng tránh khi chọn mua thiết bị điện.",
+    publishedAt: "2026-04-28",
+    readingTime: "6 phút đọc",
+    image: "/Trang-LED-chieu-sang/en-tuyp-Led.png",
+    content: [
+      "Tâm lý ham đồ rẻ khiến nhiều người chọn mua những loại đèn LED giá rẻ trôi nổi, không thương hiệu, được bày bán tràn lan trên các trang mạng xã hội.",
+      "Các sản phẩm này thường sử dụng vật liệu kém chất lượng, tản nhiệt nhựa tái chế, dẫn đến nguy cơ chập cháy mạch điện cực kỳ cao. Đáng sợ hơn, ánh sáng từ những loại đèn LED giá rẻ này thường xuyên có hiện tượng chớp nháy vi mô (flicker) và chứa nhiều ánh sáng xanh có hại, làm suy giảm thị lực của trẻ em.",
+      "Do đó, 'rẻ' không đồng nghĩa với việc mua bất chấp. Hãy tìm đến các đại lý phân phối chính hãng để sở hữu các mẫu đèn LED giá rẻ nhưng được cam kết chất lượng, bảo vệ an toàn cho cả gia đình và công trình của bạn."
+    ]
+  },
+  {
     slug: "cach-chon-den-led-cho-showroom",
     title: "Cách chọn đèn LED cho showroom sáng đều và tôn sản phẩm",
     excerpt:

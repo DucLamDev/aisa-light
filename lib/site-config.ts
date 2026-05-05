@@ -2,19 +2,19 @@ import { CategoryConfig } from "@/types/catalog";
 
 export const siteConfig = {
   name: "Asia Lighting",
-  legalName: "Công ty TNHH Thiết bị điện và chiếu sáng Châu Á",
+  legalName: "Công ty TNHH THƯƠNG MẠI HOÀNG MAI LINH",
   domain: "https://asialighting.vn",
-  phone: "0862.921.001",
+  phone: "086.292.1001",
   phoneHref: "tel:0862921001",
   phoneSouth: "0901.861.161",
   phoneSouthHref: "tel:0901861161",
   zaloHref: "https://zalo.me/0862921001",
   messengerHref: "https://m.me/asialighting.vn",
   email: "kinhdoanh@asialighting.vn",
-  address: "C2 Nơ 19, KĐT Định Công, phường Phương Liệt, thành phố Hà Nội",
+  address: "Số nhà 27, ngõ 40, ngách 65 phố Ngọc Trục, Phường Đại Mỗ, Thành phố Hà Nội, Việt Nam",
   factoryAddress: "Cụm Công Nghiệp Duyên Thái, xã Ngọc Hồi, Hà Nội, Việt Nam",
   branchAddress: "71/1G Khu phố Đông An 2, phường Bình Hòa, Hồ Chí Minh, Việt Nam",
-  taxCode: "0106800119",
+  taxCode: "0111444177",
   mapEmbed:
     "https://www.google.com/maps?q=20.9856,105.8372&z=15&output=embed",
   defaultDescription:
@@ -86,16 +86,25 @@ export const categoryConfigs: CategoryConfig[] = [
 
 export const keySubcategories: Record<string, string[]> = {
   "led-chieu-sang": [
-    "den-led-op-noi-pha-le",
-    "den-led-op-noi-sieu-sang",
-    "den-led-op-noi-than-nhua-dob",
-    "den-pha-led",
-    "den-su-co-den-chi-dan-exit",
+    "den-op-tran-noi",
+    "den-trang-tri-gan-tuong",
+    "den-led-am-tran-tong-hop",
     "den-tran-noi-led-den-ong-bo-led",
+    "den-pha-led",
+    "den-duong-led",
+    "den-nha-xuong-led",
+    "den-roi-ray-roi-ngoi-led",
+    "den-su-co-den-chi-dan-exit",
+    "den-led-panel-vuong-sieu-mong",
+    "den-tuyp-led",
+    "mang-den-tuyp-led",
+    "den-led-day-trang-tri",
+    "den-am-tuong",
+    "den-ban-hoc-sinh",
     "den-led-tron",
-    "den-tuong-1-dau",
-    "den-tuong-2-dau",
-    "den-tuong-trang-tri"
+    "den-roi-ngoai-troi",
+    "den-guong-cao-cap",
+    "den-tuong-nang-luong-mat-troi-02-03-tia-sang"
   ],
   "thiet-bi-dien": [
     "quat-hut-gio-am-tran",
@@ -108,4 +117,3 @@ export const keySubcategories: Record<string, string[]> = {
     "vot-muoi-cao-cap-den-diet-con-trung"
   ]
 };
-

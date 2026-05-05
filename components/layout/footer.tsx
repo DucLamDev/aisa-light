@@ -102,10 +102,10 @@ export function Footer() {
                 <p className="text-xs text-slate-500">Nhà máy</p>
                 <p>{siteConfig.factoryAddress}</p>
               </div>
-              <div>
+              {/* <div>
                 <p className="text-xs text-slate-500">CN Miền Nam</p>
                 <p>{siteConfig.branchAddress}</p>
-              </div>
+              </div> */}
               <div>
                 <p className="text-xs text-slate-500">Email</p>
                 <a className="text-orange-400 hover:text-orange-300" href={`mailto:${siteConfig.email}`}>
@@ -122,10 +122,10 @@ export function Footer() {
                 <p className="text-xs text-slate-500">Tư vấn & Báo giá</p>
                 <p className="mt-1 text-xl font-black text-orange-400">{siteConfig.phone}</p>
               </a>
-              <a className="block rounded-xl bg-slate-800 p-4 transition hover:bg-slate-700" href={siteConfig.phoneSouthHref}>
+              {/* <a className="block rounded-xl bg-slate-800 p-4 transition hover:bg-slate-700" href={siteConfig.phoneSouthHref}>
                 <p className="text-xs text-slate-500">Chi nhánh Miền Nam</p>
                 <p className="mt-1 text-xl font-black text-orange-400">{siteConfig.phoneSouth}</p>
-              </a>
+              </a> */}
             </div>
 
             <h4 className="mt-6 text-xs font-bold uppercase tracking-widest text-orange-400">Chính sách</h4>

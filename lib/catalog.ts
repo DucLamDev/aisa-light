@@ -12,6 +12,47 @@ import { CategoryRecord, ProductRecord, SubcategoryRecord } from "@/types/catalo
 
 const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
+const mergedSubcategoryConfigs: Record<
+  string,
+  Array<{
+    slug: string;
+    name: string;
+    sourceSlugs: string[];
+  }>
+> = {
+  "led-chieu-sang": [
+    {
+      slug: "den-op-tran-noi",
+      name: "Đèn ốp trần nổi",
+      sourceSlugs: [
+        "den-led-op-noi-pha-le",
+        "den-led-op-noi-sieu-sang",
+        "den-led-op-noi-than-nhua-dob",
+        "den-led-op-noi-mat-phang",
+        "op-noi-da-nang",
+        "op-noi-tron-van-go-thiet-ke-moi"
+      ]
+    },
+    {
+      slug: "den-trang-tri-gan-tuong",
+      name: "Đèn trang trí gắn tường",
+      sourceSlugs: ["den-tuong-1-dau", "den-tuong-2-dau", "den-tuong-trang-tri"]
+    },
+    {
+      slug: "den-led-am-tran-tong-hop",
+      name: "Đèn led âm trần",
+      sourceSlugs: ["den-led-am-tran", "den-led-panel-tron-sieu-mong"]
+    }
+  ]
+};
+
+const subcategoryCoverImageOverrides: Record<string, string> = {
+  "led-chieu-sang/den-led-tron":
+    "/Trang-LED-chieu-sang/den-led-tron/den-tron-cong-xuat-nho/en-tron-cong-suat-nho-9W.jpg",
+  "led-chieu-sang/den-roi-ray-roi-ngoi-led":
+    "/Trang-LED-chieu-sang/den-roi-ray-roi-ngoi-led/den-roi-ray-vo-den-rd01/en-roi-ray-vo-en-10W.jpg"
+};
+
 function isImage(file: string) {
   return imageExtensions.has(path.extname(file).toLowerCase());
 }
@@ -19,6 +60,89 @@ function isImage(file: string) {
 function publicPathFromAbsolute(fullPath: string) {
   const relative = path.relative(path.join(process.cwd(), "public"), fullPath);
   return `/${relative.replace(/\\/g, "/")}`;
+}
+
+function dedupeProductsBySlug(products: ProductRecord[]) {
+  const seen = new Set<string>();
+  return products.filter((product) => {
+    if (seen.has(product.slug)) return false;
+    seen.add(product.slug);
+    return true;
+  });
+}
+
+function remapSubcategoryTree(
+  subcategory: SubcategoryRecord,
+  parentSlug: string,
+  parentName: string
+): SubcategoryRecord {
+  return {
+    ...subcategory,
+    products: subcategory.products.map((product) => ({
+      ...product,
+      subcategorySlug: parentSlug,
+      subcategoryName: parentName
+    })),
+    children: subcategory.children?.map((child) =>
+      remapSubcategoryTree(child, parentSlug, parentName)
+    )
+  };
+}
+
+function applyMergedSubcategories(
+  categorySlug: string,
+  subcategories: SubcategoryRecord[]
+) {
+  const mergeConfigs = mergedSubcategoryConfigs[categorySlug];
+  if (!mergeConfigs?.length) {
+    return subcategories;
+  }
+
+  const sourceMap = new Map(subcategories.map((item) => [item.slug, item]));
+  const consumedSlugs = new Set<string>();
+  const mergedRecords: SubcategoryRecord[] = [];
+
+  for (const config of mergeConfigs) {
+    const matched = config.sourceSlugs
+      .map((slug) => sourceMap.get(slug))
+      .filter((item): item is SubcategoryRecord => Boolean(item));
+    if (matched.length === 0) {
+      continue;
+    }
+
+    for (const slug of config.sourceSlugs) {
+      consumedSlugs.add(slug);
+    }
+
+    const mergedChildren = matched.map((item) =>
+      remapSubcategoryTree(item, config.slug, config.name)
+    );
+    const mergedProducts = dedupeProductsBySlug(
+      mergedChildren.flatMap((item) =>
+        item.products.map((product) => ({
+          ...product
+        }))
+      )
+    );
+
+    mergedRecords.push({
+      slug: config.slug,
+      name: config.name,
+      coverImage: mergedChildren[0].coverImage,
+      products: mergedProducts,
+      children: mergedChildren
+    });
+  }
+
+  const remaining = subcategories.filter((item) => !consumedSlugs.has(item.slug));
+  return [...mergedRecords, ...remaining];
+}
+
+function applySubcategoryCoverOverrides(categorySlug: string, subcategories: SubcategoryRecord[]) {
+  return subcategories.map((subcategory) => {
+    const override = subcategoryCoverImageOverrides[`${categorySlug}/${subcategory.slug}`];
+    return override ? { ...subcategory, coverImage: override } : subcategory;
+  });
 }
 
 function createProductDescription(name: string, subcategory: string, category: string) {
@@ -241,7 +365,15 @@ export async function getCatalog() {
       }, []);
 
       const keySlugs = keySubcategories[config.slug] || [];
-      const allSubcategories = [...subcategories, ...extraSubcategories].sort((a, b) => {
+      const mergedSubcategories = applyMergedSubcategories(config.slug, [
+        ...subcategories,
+        ...extraSubcategories
+      ]);
+      const subcategoriesWithCovers = applySubcategoryCoverOverrides(
+        config.slug,
+        mergedSubcategories
+      );
+      const allSubcategories = subcategoriesWithCovers.sort((a, b) => {
         const aIndex = keySlugs.indexOf(a.slug);
         const bIndex = keySlugs.indexOf(b.slug);
         
@@ -316,11 +448,22 @@ export async function getProduct(
   const { category, subcategory } = await getSubcategory(categorySlug, subcategorySlug);
   const product = subcategory?.products.find((item) => item.slug === productSlug) ?? null;
 
-  // Also check in children's products if not found at top level
   if (!product && subcategory?.children) {
-    for (const child of subcategory.children) {
-      const found = child.products.find((item) => item.slug === productSlug);
-      if (found) return { category, subcategory, product: found };
+    const findProductInChildren = (children: SubcategoryRecord[]): ProductRecord | null => {
+      for (const child of children) {
+        const found = child.products.find((item) => item.slug === productSlug);
+        if (found) return found;
+        if (child.children) {
+          const nested = findProductInChildren(child.children);
+          if (nested) return nested;
+        }
+      }
+      return null;
+    };
+
+    const found = findProductInChildren(subcategory.children);
+    if (found) {
+      return { category, subcategory, product: found };
     }
   }
 
